@@ -1,0 +1,161 @@
+{% extends "../../../layout.html" %}
+
+{% block page_title %}
+  {% if serviceName %} {{ serviceName }} {% endif %}
+{% endblock %}
+
+{% block page_scripts %}
+{% include "./includes/_page_scripts.html" %}
+{% endblock %}
+
+{% block page_styles %}
+{% include "./includes/_page_styles.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  	<div class="grid-row">
+	    <div class="column-two-thirds">
+
+	    	<a class="link-back" href="../">Back</a>
+
+		    <h1 class="heading-xlarge">
+		      Claim for Crown court fees
+		    </h1>
+
+		    <h2 class="heading-large">
+		    	Miscellaneous fees
+		    </h2>
+
+			<form method="get" autocomplete="off">
+
+				<div id="list-item-row-1" class="form-section-compound list-item-row" data-item-number="1">
+
+				    <h3 class="heading-medium list-item-heading">
+						Miscellaneous fee
+					</h3>
+
+					<div class="form-group fee-type">
+						<fieldset class="miscellaneous-fee-type">
+							<legend class="form-label-bold">
+								Type of fee
+							</legend>
+
+							<select class="form-control" id="miscellaneous-fee-1-type" name="miscellaneous_fee_1_type" style="width:100%">
+								<option value=""></option>
+								<option data-abbreviations="APH" value="abuse_of_process_hearings_half_day">Abuse of process hearings (half day)</option>
+								<option data-abbreviations="APU" value="abuse_of_process_hearings_half_day_uplift">Abuse of process hearings (half day uplift)</option>
+								<option data-abbreviations="APW" value="abuse_of_process_hearings_whole_day">Abuse of process hearings (whole day)</option>
+								<option data-abbreviations="AWU" value="abuse_of_process_hearings_whole_day_uplift">Abuse of process hearings (whole day uplift)</option>
+								<option value="adjourned_appeals">Adjourned appeals</option>
+								<option value="application_to_dismiss_a_charge_half_day">Application to dismiss a charge (half day)</option>
+								<option value="application_to_dismiss_a_charge_half_day_uplift">Application to dismiss a charge (half day uplift)</option>
+								<option value="application_to_dismiss_a_charge_whole_day">Application to dismiss a charge (whole day)</option>
+								<option value="application_to_dismiss_a_charge_whole_day_uplift">Application to dismiss a charge (whole day uplift)</option>
+								<option data-abbreviations="DTH,PCH" value="confiscation_hearings_half_day">Confiscation hearings (half day)</option>
+								<option data-abbreviations="DHU,CHU" value="confiscation_hearings_half_day_uplift">Confiscation hearings (half day uplift)</option>
+								<option data-abbreviations="DTW,PCW" value="confiscation_hearings_whole_day">Confiscation hearings (whole day)</option>
+								<option data-abbreviations="DWU,CWU" value="confiscation_hearings_whole_day_uplift">Confiscation hearings (whole day uplift)</option>
+								<option data-abbreviations="DSE" value="deferred_sentence_hearings">Deferred sentence hearings</option>
+								<option data-abbreviations="DSU" value="deferred_sentence_hearings_uplift">Deferred sentence hearings uplift</option>
+								<option data-abbreviations="AEH,PAH" value="hearings_relating_to_admissibility_of_evidence_half_day">Hearings relating to admissibility of evidence (half day)</option>
+								<option data-abbreviations="EHU,PHU" value="hearings_relating_to_admissibility_of_evidence_half_day_uplift">Hearings relating to admissibility of evidence (half day uplift)</option>
+								<option data-abbreviations="AEW,PAW" value="hearings_relating_to_admissibility_of_evidence_whole_day">Hearings relating to admissibility of evidence (whole day)</option>
+								<option data-abbreviations="EWU,PWU" value="hearings_relating_to_admissibility_of_evidence_whole_day_uplift">Hearings relating to admissibility of evidence (whole day uplift)</option>
+								<option data-abbreviations="HDH" value="hearings_relating_to_disclosure_half_day">Hearings relating to disclosure (half day)</option>
+								<option data-abbreviations="HHU" value="hearings_relating_to_disclosure_half_day_uplift">Hearings relating to disclosure (half day uplift)</option>
+								<option data-abbreviations="HDW" value="hearings_relating_to_disclosure_whole_day">Hearings relating to disclosure (whole day)</option>
+								<option data-abbreviations="HWU" value="hearings_relating_to_disclosure_whole_day_uplift">Hearings relating to disclosure (whole day uplift)</option>
+								<option data-abbreviations="NBR" value="noting_brief_fee">Noting brief fee</option>
+								<option data-abbreviations="PPC" value="paper_plea_case_management_hearing">Paper plea &amp; case management hearing</option>
+								<option data-abbreviations="PCU" value="paper_plea_case_management_hearing_uplift">Paper plea &amp; case management hearing uplift</option>
+								<option value="proceeds_of_crime_hearings_half_day">Proceeds of crime hearings (half day)</option>
+								<option value="proceeds_of_crime_hearings_half_day_uplift">Proceeds of crime hearings (half day uplift)</option>
+								<option value="proceeds_of_crime_hearings_whole_day">Proceeds of crime hearings (whole day)</option>
+								<option value="proceeds_of_crime_hearings_whole_day_uplift">Proceeds of crime hearings (whole day uplift)</option>
+								<option value="public_interest_immunity_hearings_half_day">Public interest immunity hearings (half day)</option>
+								<option value="public_interest_immunity_hearings_half_day_uplift">Public interest immunity hearings (half day uplift)</option>
+								<option value="public_interest_immunity_hearings_whole_day">Public interest immunity hearings (whole day)</option>
+								<option value="public_interest_immunity_hearings_whole_day_uplift">Public interest immunity hearings (whole day uplift)</option>
+								<option value="research_of_very_unusual_or_novel_factual_issue">Research of very unusual or novel factual issue</option>
+								<option value="research_of_very_unusual_or_novel_point_of_law">Research of very unusual or novel point of law</option>
+								<option value="sentence_hearings">Sentence hearings</option>
+								<option value="sentence_hearings_uplift">Sentence hearings uplift</option>
+								<option data-abbreviations="SPF" value="special_preparation_fee">Special preparation fee</option>
+								<option data-abbreviations="SAU" value="standard_appearance_fee_uplift">Standard appearance fee uplift</option>
+								<option value="trial_not_proceed">Trial not proceed</option>
+								<option value="trial_not_proceed_uplift">Trial not proceed uplift</option>
+								<option value="unsuccessful_application_to_vacate_a_guilty_plea_half_day">Unsuccessful application to vacate a guilty plea (half day)</option>
+								<option value="unsuccessful_application_to_vacate_a_guilty_plea_half_day_uplift">Unsuccessful application to vacate a guilty plea (half day uplift)</option>
+								<option value="unsuccessful_application_to_vacate_a_guilty_plea_whole_day">Unsuccessful application to vacate a guilty plea (whole day)</option>
+								<option value="unsuccessful_application_to_vacate_a_guilty_plea_whole_day_uplift">Unsuccessful application to vacate a guilty plea (whole day uplift)</option>
+								<option data-abbreviations="WPF" data-other-names="Wasted prep fee" value="wasted_preparation_fee">Wasted preparation fee</option>
+								<option data-abbreviations="WOA,RNF,RNL" data-other-names="Written or oral advice" value="written_oral_advice">Written / oral advice</option>
+							</select>
+
+						</fieldset>
+					</div>
+
+					 <div class="form-group">
+					    <fieldset>
+					        <legend class="form-label-bold">
+					            Date of hearing
+					            <span class="form-hint">
+					                For example, 31 3 2017
+					            </span>
+					        </legend>
+
+							<div class="form-date date-of-hearing">
+							    <div class="form-group form-group-day">
+							        <label class="form-label" for="miscellaneous-fee-1-date-day">
+							            Day
+							        </label>
+							        <input class="form-control" id="miscellaneous-fee-1-date-day" max="31" min="1" name="miscellaneous_fee_1_date_day" pattern="[0-9]*" type="number" value="" autocorrect="off" autocapitalize="off" spellcheck="false">
+							    </div>
+							    <div class="form-group form-group-month">
+							        <label class="form-label" for="miscellaneous-fee-1-date-month">
+							            Month
+							        </label>
+							        <input class="form-control" id="miscellaneous-fee-1-date-month" max="12" min="1" name="miscellaneous_fee_1_date_month" pattern="[0-9]*" type="number" value="" autocorrect="off" autocapitalize="off" spellcheck="false">
+							    </div>
+							    <div class="form-group form-group-year">
+							        <label class="form-label" for="miscellaneous-fee-1-date-year">
+							            Year
+							        </label>
+							        <input class="form-control" id="miscellaneous-fee-1-date-year" max="2019" min="1900" name="miscellaneous_fee_1_date_year" pattern="[0-9]*" type="number" value="" autocorrect="off" autocapitalize="off" spellcheck="false">
+							    </div>
+							</div>
+
+						</fieldset>
+					</div>
+
+					<div class="form-group net-amount">
+					    <label class="form-label-bold" for="miscellaneous-fee-1-net-amount">
+					        Net amount
+					    </label>
+					    <span class="form-input-denote">
+					        &pound;
+					    </span>
+					    <input class="form-control form-control-1-4 form-input-denote__input" id="miscellaneous-fee-1-net-amount" name="miscellaneous_fee_1_net_amount" type="number" max="999999.99" min="0.00" step="0.01" value="" autocorrect="off" autocapitalize="off" spellcheck="false">
+					</div>
+
+					<hr>
+
+				</div>
+
+				<div class="form-section">
+					<div class="form-group form-buttons">
+						<input type="submit" class="button" value="Save and continue">
+						<input type="button" id="add-button" class="button button-secondary add-list-item" value="Add another fee">
+						<input type="button" class="button button-tertiary" value="Save as draft">
+					</div>
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+</main>
+
+{% endblock %}

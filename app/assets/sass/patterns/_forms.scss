@@ -1,0 +1,15 @@
+.form-control-full {
+  width: 100%;
+
+  @include media(tablet) {
+    width: 75%;
+  }
+}
+
+.form-control-full-textarea {
+  width: 100% !important;
+
+  @include media(tablet) {
+    width: 75%;
+  }
+}

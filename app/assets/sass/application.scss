@@ -1,0 +1,332 @@
+// Path to assets for use with the file-url function
+// in the govuk frontend toolkit's url-helpers partial
+$path: "/public/images/";
+
+// Import GOV.UK elements from /govuk-modules/, this will import the frontend toolkit and some base styles.
+// Take a look in /govuk-modules/_govuk-elements.scss to see which files are imported.
+@import 'govuk-elements';
+
+// Take a look at in app/assets/sass/patterns/ to see which files are imported.
+@import 'patterns/check-your-answers';
+@import 'patterns/task-list';
+
+// Import custom application styles
+@import 'patterns/accordion';
+@import 'patterns/autocomplete';
+@import 'patterns/buttons';
+@import 'patterns/claim-statuses';
+@import 'patterns/collections';
+@import 'patterns/denote';
+@import 'patterns/forms';
+@import 'patterns/form_messages';
+@import 'patterns/layout';
+@import 'patterns/links';
+@import 'patterns/markdown';
+@import 'patterns/messages';
+@import 'patterns/pagination';
+@import 'patterns/panels';
+@import 'patterns/sidebar';
+@import 'patterns/tables';
+@import 'patterns/tabs';
+
+/*@import 'govuk_overides';*/
+
+/*@import 'modules/modules';*/
+
+// Related items
+// (These styles will be moved to GOV.UK elements, duplicating here for now.)
+.govuk-related-items {
+  margin-top: $gutter;
+  border-top: 10px solid $govuk-blue;
+  padding-top: 5px;
+
+  .heading-medium {
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+  }
+
+  li {
+    margin-bottom: 10px;
+    list-style-type: none;
+  }
+}
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+.error {
+  color: $red;
+}
+
+.warning {
+  colour: $orange;
+}
+
+/* --------------------------------------- */
+/* Basic text/textarea styles */
+/* --------------------------------------- */
+
+.form-control-full-width {
+  width: 100%
+}
+
+/* --------------------------------------- */
+/* Basic font styles */
+/* --------------------------------------- */
+
+.font-grey {
+  color: #6f777b;
+}
+
+/* --------------------------------------- */
+/* Show/hide styles */
+/* --------------------------------------- */
+
+.fx-block,
+.fx-additional-case-numbers,
+.fx-travel-cost,
+.fx-travel-date,
+.fx-travel-destination,
+.fx-travel-distance,
+.fx-travel-location,
+.fx-travel-hours,
+.fx-travel-mileage,
+.fx-travel-reason,
+.fx-travel-court,
+.fx-travel-magistrates-court,
+.fx-travel-prison,
+.fx-travel-hospital,
+.fx-travel-net-amount,
+.fx-travel-vat-amount,
+.fx-travel-gross-amount,
+.fx-case-details-trial,
+.fx-case-details-retrial,
+.fx-case-details-cracked-trial,
+.fx-case-details-cracked-before-retrial,
+.fx-travel-reason-other,
+.fx-additional-info {
+  display: none;
+}
+
+/* --------------------------------------- */
+/* Offence list styles */
+/* --------------------------------------- */
+
+div.offence-item, li.offence-item {
+    margin: 0px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+div.offence-item:nth-child(odd),
+li.offence-item:nth-child(odd) {
+   background-color: #f8f8f8;
+}
+
+div.offence-item:hover,
+li.offence-item:hover {
+   background-color: #e7f4fb;
+}
+
+div.offence-item a.offence-item-button,
+li.offence-item a.offence-item-button {
+  visibility: hidden;
+}
+
+div.offence-item:hover a.offence-item-button,
+li.offence-item:hover a.offence-item-button {
+   visibility: visible;
+}
+
+div.selected-offence {
+  background: #e1e8e8;
+  padding: 15px 30px;
+}
+
+.font-grey {
+    color: #6f777b;
+}
+
+.link-grey {
+  color: #6f777b !important;
+  text-decoration: none;
+}
+
+.link-grey:hover {
+  color: #6f777b !important;
+  text-decoration: underline;
+}
+
+.align-right {
+  text-align: right;
+}
+
+mark {
+  background-color: #ffffca;
+}
+
+/* --------------------------------------- */
+/* Status box styles */
+/* --------------------------------------- */
+
+.confirmation {
+  background-color: #28a197;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0px;
+  margin-bottom: 30px;
+}
+
+/* --------------------------------------- */
+/* Dropzone styles */
+/* --------------------------------------- */
+
+.dropzone {
+  border: 2px dashed #0b0c0c;
+  border-radius: 5px;
+  /*background-color: #f8f8f8;*/
+  min-height: 150px;
+  padding: 54px 54px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* --------------------------------------- */
+/* Abbreviation styles */
+/* --------------------------------------- */
+
+abbr[title], dfn[title] {
+    cursor: help;
+    outline: 0;
+}
+
+abbr[title]:focus {
+  background-color: $yellow;
+  outline: 3px solid $yellow;
+  border-bottom: 1px dotted $black;
+}
+
+abbr[title]:focus::after {
+  content: " (" attr(title) ")";
+}
+
+/* --------------------------------------- */
+/* Password styles */
+/* --------------------------------------- */
+
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+#password + .fa-eye {
+   cursor: pointer;
+   pointer-events: all;
+ }
+
+.show-hide {
+  background: transparent;
+  border: 0;
+  /*border-radius: 0.25em;*/
+  color: #888;
+  cursor: pointer;
+  font-size: 0.75em;
+  font-weight: bold;
+  margin-right: 0.5em;
+  /*padding: 0.5em;*/
+  text-transform: uppercase;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.show-hide:hover,
+.show-hide:focus {
+  /*background-color: #eee;*/
+  color: #555;
+  outline: transparent;
+}
+
+
+/*::-ms-reveal,
+::-ms-clear {
+  display: none !important;
+}
+
+.hideShowPassword-toggle {
+  background-color: transparent;
+  background-position: 0 center;
+  background-repeat: no-repeat;
+  border: 2px solid transparent;
+  border-radius: 0.25em;
+  cursor: pointer;
+  font-size: 100%;
+  height: 44px;
+  margin: 0;
+  max-height: 100%;
+  padding: 0;
+  overflow: 'hidden';
+  text-indent: -999em;
+  width: 46px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.hideShowPassword-toggle-hide {
+  background-position: -44px center;
+}
+
+.hideShowPassword-toggle:hover,
+.hideShowPassword-toggle:focus {
+  border-color: #0088cc;
+  outline: transparent;
+}*/
+
+
+.navigation ol:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.navigation {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}
+
+.navigation li {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.14286;
+  float: left;
+  border-left: 1px solid #bfc1c3;
+  /*background-image: url("../images/separator.png");
+  background-position: 0% 50%;
+  background-repeat: no-repeat;*/
+  list-style: none;
+  margin-left: 0.6em;
+  margin-bottom: 0.4em;
+  padding-left: 0.6em;
+}
+
+@media (min-width: 641px) {
+  .navigation li {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .navigation li {
+    /*background-image: url("../images/separator-2x.png");
+    background-size: 6px 11px;*/
+  }
+}
+
+.navigation li:first-child {
+  border-left: none;
+  /*background-image: none;*/
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.navigation a {
+  color: #005da6;
+}

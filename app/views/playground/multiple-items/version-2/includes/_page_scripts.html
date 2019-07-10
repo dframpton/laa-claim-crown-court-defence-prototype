@@ -1,0 +1,199 @@
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $(document).on('click', '.add-list-item', function (e) {
+    e.preventDefault();
+    insertParentFields();
+    sortParentFields();
+  });
+
+  $(document).on('click', '.remove-list-item', function (e) {
+    e.preventDefault();
+    $(this).parents('.list-item-row').remove();
+    sortParentFields();
+  });
+
+  $(document).on('click', '.add-child-list-item', function (e) {
+    e.preventDefault();
+
+    var listCounter = $(this).parents('.list-item-row').attr('data-item-number');
+    var fieldCounter = listCounter - 1;
+
+    insertChildFields(listCounter);
+    sortChildFields(listCounter, fieldCounter);
+  });
+
+  $(document).on('click', '.remove-child-list-item', function (e) {
+    e.preventDefault();
+
+    var listCounter = $(this).parents('.list-item-row').attr('data-item-number');
+    var fieldCounter = listCounter - 1;
+
+    var childListCounter = $(this).parents('.child-list-item-row').attr('data-item-number');
+
+    $(this).parents('#child-list-item-row-' + childListCounter).remove();
+
+    sortChildFields(listCounter, fieldCounter);
+  });
+
+  function insertParentFields() {
+    $('.list-item-row:last').after(
+        '<div id="list-item-row-x" class="form-section list-item-row" data-item-number="x">' +
+            '<h3 class="heading-medium list-item-heading">Parent item</h3>' +
+            '<div class="form-group field-name-1">' +
+                '<label class="form-label-bold" for="parent-x-field-name-1">' +
+                    'Field name 1' +
+                    '<span class="form-hint">Something...</span>' +
+                '</label>' +
+                '<input class="form-control" id="parent-x-field-name-1" name="parent-x-field-name-1" type="text" autocomplete="off">' +
+            '</div>' +
+            '<div class="form-group field-name-2">' +
+                '<label class="form-label-bold" for="parent-x-field-name-2">' +
+                    'Field name 2' +
+                    '<span class="form-hint">Something...</span>' +
+                '</label>' +
+                '<input class="form-control" id="parent-x-field-name-2" name="parent-x-field-name-2" type="text" autocomplete="off">' +
+            '</div>' +
+            '<h3 class="heading-medium">Child thing details</h3>' +
+            '<div id="child-list-item-row-x" class="form-section-compound child-list-item-row" data-item-number="x">' +
+              '<h4 class="heading-small child-list-item-heading">Child item</h4>' +
+              '<div class="form-group child-field-name-1">' +
+                  '<label class="form-label-bold" for="parent-x-child-x-field-name-1">' +
+                      'Field name 1' +
+                      '<span class="form-hint">Something...</span>' +
+                  '</label>' +
+                  '<input class="form-control" id="parent-x-child-x-field-name-1" name="parent-x-child-x-field-name-1" type="text" autocomplete="off">' +
+              '</div>' +
+              '<div class="form-group child-field-name-2">' +
+                  '<label class="form-label-bold" for="parent-x-child-x-field-name-2">' +
+                      'Field name 2' +
+                      '<span class="form-hint">Something...</span>' +
+                  '</label>' +
+                  '<input class="form-control" id="parent-x-child-x-field-name-2" name="parent-x-child-x-field-name-2" type="text" autocomplete="off">' +
+              '</div>' +
+          '</div>' +
+          '<a id="add-link" class="add-child-list-item" href="#">Add another child</a>' +
+          '<hr>' +
+        '</div>'
+    );
+  }
+
+  function insertChildFields(listCounter) {
+    $('#list-item-row-' + listCounter + '> .child-list-item-row:last').after(
+        '<div id="child-list-item-row-x" class="form-section-compound child-list-item-row" data-item-number="x">' +
+              '<h4 class="heading-small child-list-item-heading">Child item</h4>' +
+              '<div class="form-group child-field-name-1">' +
+                  '<label class="form-label-bold" for="parent-x-child-x-field-name-1">' +
+                      'Field name 1' +
+                      '<span class="form-hint">Something...</span>' +
+                  '</label>' +
+                  '<input class="form-control" id="parent-x-child-x-field-name-1" name="parent-x-child-x-field-name-1" type="text" autocomplete="off">' +
+              '</div>' +
+              '<div class="form-group child-field-name-2">' +
+                  '<label class="form-label-bold" for="parent-x-child-x-field-name-2">' +
+                      'Field name 2' +
+                      '<span class="form-hint">Something...</span>' +
+                  '</label>' +
+                  '<input class="form-control" id="parent-x-child-x-field-name-2" name="parent-x-child-x-field-name-2" type="text" autocomplete="off">' +
+              '</div>' +
+          '</div>'
+    );
+  }
+
+  function sortParentFields() {
+    var listCounter = 1;
+    var fieldCounter = 0;
+
+    $(document).find('.list-item-row').each(function () {
+
+      $(this).attr('id', ('list-item-row-' + listCounter));
+      $(this).attr('data-item-number', listCounter);
+
+      $(this).find('h3.list-item-heading').text('Parent item ' + listCounter);
+
+      if ($(this).find('.remove-list-item').length === 0) {
+        $(this).find('.list-item-heading:last').append('<a id="remove-item-' + listCounter + '" class="link-remove remove-list-item" href="#">Remove <span class="visually-hidden">&nbsp;this parent item</span></a>');
+      } else {
+        $(this).find('.remove-list-item').attr('id', ('remove-item-' + listCounter));
+      }
+
+      // Label counter
+      $(this).find('.field-name-1').children('label').each(function () {
+        $(this).attr('for', ('parent-' + listCounter + '-field-name-1'));
+      });
+
+      $(this).find('.field-name-2').children('label').each(function () {
+        $(this).attr('for', ('parent-' + listCounter + '-field-name-2'));
+      });
+
+      // Input counter
+      $(this).find('.field-name-1').children('input').each(function () {
+        $(this).attr('id', ('parent-' + listCounter + '-field-name-1'));
+        $(this).attr('name', ('parent-' + listCounter + '-field-name-1'));
+      });
+
+      $(this).find('.field-name-2').children('input').each(function () {
+        $(this).attr('id', ('parent-' + listCounter + '-field-name-2'));
+        $(this).attr('name', ('parent-' + listCounter + '-field-name-2'));
+      });
+
+      sortChildFields(listCounter, fieldCounter);
+
+      listCounter++;
+      fieldCounter++;
+    });
+
+    if ($(document).find('.list-item-row').length === 1) {
+      $('.remove-list-item').remove();
+    }
+  }
+
+  function sortChildFields(listCounter, fieldCounter) {
+    var childListCounter = 1;
+    var childFieldCounter = 0;
+
+    $(document).find('#list-item-row-' + listCounter + ' > .child-list-item-row').each(function () {
+
+      $(this).attr('id', ('child-list-item-row-' + childListCounter));
+      $(this).attr('data-item-number', childListCounter);
+
+      $(this).find('h4.child-list-item-heading').text('Child item ' + childListCounter);
+
+      if ($(this).find('.remove-child-list-item').length === 0) {
+        $(this).find('.child-list-item-heading:last').append('<a id="remove-list-item-' + listCounter + '-child-' + childListCounter + '" class="link-remove remove-child-list-item" href="#">Remove <span class="visually-hidden">&nbsp;this child item</span></a>');
+      } else {
+        $(this).find('.remove-child-list-item').attr('id', ('remove-child-list-item-' + childListCounter));
+      }
+
+      // Label counter
+      $(this).find('.child-field-name-1').children('label').each(function () {
+        $(this).attr('for', ('parent-' + listCounter + '-child-' + childListCounter + '-field-name-1'));
+      });
+
+      $(this).find('.child-field-name-2').children('label').each(function () {
+        $(this).attr('for', ('parent-' + listCounter + '-child-' + childListCounter + '-field-name-2'));
+      });
+
+      // Input counter
+      $(this).find('.child-field-name-1').children('input').each(function () {
+        $(this).attr('id', ('parent-' + listCounter + '-child-' + childListCounter + '-field-name-1'));
+        $(this).attr('name', ('parent-' + fieldCounter + '-child-' + childFieldCounter + '-field-name-1'));
+      });
+
+      $(this).find('.child-field-name-2').children('input').each(function () {
+        $(this).attr('id', ('parent-' + listCounter + '-child-' + childListCounter + '-field-name-2'));
+        $(this).attr('name', ('parent-' + fieldCounter + '-child-' + childFieldCounter + '-field-name-2'));
+      });
+
+      childListCounter++;
+      childFieldCounter++;
+    });
+
+    if ($(document).find('#list-item-row-' + listCounter + ' > .child-list-item-row').length === 1) {
+      $('#remove-list-item-' + listCounter + '-child-1').remove();
+    }
+
+  }
+
+});
+</script>

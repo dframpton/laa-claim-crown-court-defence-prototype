@@ -1,0 +1,20 @@
+{% if offence.class_label.length -%}
+<table class="summary">
+	<tbody>
+		<tr>
+			<th class="bold" scope="row">
+				Offence class
+			</th>
+			<td>{{offence.class_label}}</td>
+		</tr>
+		<tr>
+			<th class="bold" scope="row">
+				Offence category
+			</th>
+			<td>{{offence.category_label}}</td>
+		</tr>
+	</tbody>
+</table>
+{% else %}
+<p>There are no offence details for this claim.</p>
+{%- endif %}

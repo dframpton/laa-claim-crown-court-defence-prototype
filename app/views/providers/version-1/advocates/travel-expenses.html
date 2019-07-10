@@ -1,0 +1,43 @@
+{% extends "../layout.html" %}
+
+{% block page_title %}
+  {% if serviceName %} {{ serviceName }} {% endif %}
+{% endblock %}
+
+{% block page_scripts %}
+{% include "../includes/_page_scripts_travel_expenses.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+	{% include "./includes/_banner.html" %}
+
+	<a class="link-back" href="{{links.previous}}">Back</a>
+
+	<h1 class="heading-xlarge">
+		Claim for advocate fees
+	</h1>
+
+  	<div class="grid-row">
+	    <div class="column-three-quarters">
+
+	    	<form class="form" method="post">
+
+				{% include "../includes/_travel_expenses.html" %}
+
+				{% include "./includes/_form_actions.html" %}
+
+			</form>
+
+			{% include "./includes/_help.html" %}
+
+	    </div>
+
+	    {% include "./includes/_sidebar.html" %}
+
+  	</div>
+</main>
+
+{% endblock %}

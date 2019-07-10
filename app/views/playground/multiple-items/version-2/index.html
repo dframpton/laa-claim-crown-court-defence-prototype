@@ -1,0 +1,105 @@
+{% extends "../../../layout.html" %}
+
+{% block page_title %}
+  {% if serviceName %} {{ serviceName }} {% endif %}
+{% endblock %}
+
+{% block page_scripts %}
+{% include "./includes/_page_scripts.html" %}
+{% endblock %}
+
+{% block page_styles %}
+{% include "./includes/_page_styles.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  	<div class="grid-row">
+	    <div class="column-two-thirds">
+
+	    	<a class="link-back" href="../">Back</a>
+
+		    <h1 class="heading-xlarge">
+		      Multiple items
+		    </h1>
+
+		    <!-- <p class="lede">Something...</p> -->
+
+		    <h2 class="heading-large">
+		    	Item details
+		    </h2>
+
+			<form method="get">
+
+				<div id="list-item-row-1" class="form-section list-item-row" data-item-number="1">
+
+				    <h3 class="heading-medium list-item-heading">
+				        Parent item
+				    </h3>
+
+				    <div class="form-group">
+				        <label class="form-label-bold" for="parent-1-field-name-1">
+				            Field name 1
+				            <span class="form-hint">Something...</span>
+				        </label>
+				        <input class="form-control" id="parent-1-field-name-1" name="parent-1-field-name-1" type="text" value="{{data['parent-1-field-name-1']}}" autocomplete="off">
+				    </div>
+
+				    <div class="form-group">
+				        <label class="form-label-bold" for="parent-1-field-name-2">
+				            Field name 2
+				            <span class="form-hint">Something...</span>
+				        </label>
+				        <input class="form-control" id="parent-1-field-name-2" name="parent-1-field-name-2" type="text" value="{{data['parent-1-field-name-2']}}" autocomplete="off">
+				    </div>
+
+				    <h3 class="heading-medium">
+				        Child item details
+				    </h3>
+
+				    <div id="child-list-item-row-1" class="form-section-compound child-list-item-row" data-item-number="1">
+
+					    <h4 class="heading-small child-list-item-heading">
+					        Child item
+					    </h4>
+
+					    <div class="form-group">
+					        <label class="form-label-bold" for="parent-1-child-1-field-name-1">
+					            Field name 1
+				            	<span class="form-hint">Something...</span>
+					        </label>
+					        <input class="form-control" id="parent-1-child-1-field-name-1" name="parent-1-child-1-field-name-1" type="text" value="{{data['parent-1-child-1-field-name-1']}}" autocomplete="off">
+					    </div>
+
+					    <div class="form-group">
+					        <label class="form-label-bold" for="parent-1-child-1-field-name-2">
+					            Field name 2
+				            	<span class="form-hint">Something...</span>
+					        </label>
+					        <input class="form-control" id="parent-1-child-1-field-name-2" name="parent-1-child-1-field-name-2" type="text" value="{{data['parent-1-child-1-field-name-2']}}" autocomplete="off">
+					    </div>
+
+					</div>
+
+				    <a id="add-link" class="add-child-list-item" href="#">Add another child</a>
+
+				    <hr>
+
+				</div>
+
+				<div class="form-section">
+					<div class="form-group form-buttons">
+						<input type="submit" class="button" value="Save and continue">
+						<input type="button" id="add-button" class="button button-tertiary add-list-item" value="Add another parent">
+						<a id="cancel" class="link-secondary">Cancel</a>
+					</div>
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+</main>
+
+{% endblock %}

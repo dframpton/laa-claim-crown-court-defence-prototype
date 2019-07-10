@@ -1,0 +1,10 @@
+<ul id="offence-list">
+    {% for offence in offences -%}
+    <li>
+    	<span class="font-xsmall">{{offence.class_id | capitalize}} - {{offence.class_label | capitalize}}</span><br>
+        <a class="bold" href="{{base}}/detail/{{offence.class_id}}/{{offence.category_id}}">
+            {{offence.category_label | capitalize}}
+        </a>
+    </li>
+    {%- endfor %}
+</ul>

@@ -1,0 +1,132 @@
+{% extends "../layout.html" %}
+
+{% block page_title %}
+  {% if serviceName %} {{ serviceName }} {% endif %}
+{% endblock %}
+
+{% block page_scripts %}
+{% include "../includes/_page_scripts_case_details.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+	{% include "../includes/_banner.html" %}
+
+	<a class="link-back" href="{{links.previous}}">
+		Back
+		<span class="visually-hidden"> to your claims</span>
+	</a>
+
+	<h1 class="heading-xlarge">
+		Claim for advocate fees
+	</h1>
+
+	<div class="grid-row">
+	    <div class="column-three-quarters">
+
+	    	<form class="form" action="{{links.next}}" method="post">
+
+				<div class="grid-row">
+					
+					<div class="column-full">
+						
+						<div class="form-section">
+							<h2 id="section-heading" class="heading-large">
+								Case details
+							</h2>
+							
+							{% include "./includes/_case_details.html" %}
+
+						</div>
+
+						<div class="form-section fx-case-details-trial">
+							<h3 class="heading-medium">
+								Trial details
+							</h3>
+							{% include "./includes/_case_details_trial.html" %}
+						</div>
+
+						<div class="form-section fx-case-details-retrial">
+							<h3 class="heading-medium">
+								Retrial details
+							</h3>
+							{% include "./includes/_case_details_retrial.html" %}
+						</div>
+
+						<div class="form-section fx-case-details-cracked-trial">
+							<h3 class="heading-medium">
+								Cracked trial details
+							</h3>
+							{% include "./includes/_case_details_cracked_trial.html" %}
+						</div>
+
+						<div class="form-section fx-case-details-cracked-before-retrial">
+							<h3 class="heading-medium">
+								Cracked before retrial details
+							</h3>
+							{% include "./includes/_case_details_cracked_trial.html" %}
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="grid-row">
+					
+					<div class="column-two-thirds">
+						
+						<div class="form-section">
+							<h2 id="section-heading" class="heading-large">
+								Offence details
+							</h2>
+							
+							{% include "../includes/_offence_details.html" %}
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="grid-row">
+					
+					<div class="column-two-thirds">
+						
+						<div class="form-section">
+							<h2 id="section-heading" class="heading-large">
+								Defendant details
+							</h2>
+							
+							{% include "../includes/_defendant_details.html" %}
+
+							<hr>
+							<a href="#noop" class="button button-secondary" role="button">Add another defendant</a>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="form-section">
+					<div class="form-group form-buttons">
+						<input type="submit" class="button" value="Save and continue">
+						<input type="submit" class="button button-tertiary" value="Save as draft">
+						<!-- <a href="{{links.home}}">Cancel</a> -->
+					</div>
+				</div>
+
+			</form>
+
+			{% include "./includes/_help.html" %}
+
+	    </div>
+
+		{% include "./includes/_sidebar.html" %}
+
+  	</div>
+
+</main>
+
+{% endblock %}

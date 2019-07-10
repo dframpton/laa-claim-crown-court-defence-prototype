@@ -1,0 +1,32 @@
+{% extends "./layout.html" %}
+
+{% block page_title %}
+  {% if serviceName %} {{ serviceName }} {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+	{% include "./includes/_banner.html" %}
+
+  	<div class="grid-row">
+	    <div class="column-two-thirds">
+
+			<h1 class="heading-xlarge">
+		      Claims
+		    </h1>
+
+		    <!-- <p class="lede">
+				Something something something
+			</p> -->
+
+		    
+			<a href="./providers">Providers</a>
+			
+
+	    </div>
+  	</div>
+</main>
+
+{% endblock %}
