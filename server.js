@@ -119,6 +119,8 @@ app.locals.promoMode = promoMode
 app.locals.releaseVersion = 'v' + releaseVersion
 app.locals.serviceName = config.serviceName
 
+app.locals.GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY
+
 // Support session data
 app.use(session({
   cookie: {
